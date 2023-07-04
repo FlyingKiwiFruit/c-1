@@ -1,0 +1,572 @@
+测试软件用：
+#include<stdio.h>
+
+int main()
+{
+	printf("3Q\n");
+		return 0;
+}
+
+选择语句用：
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int input = 0;
+	printf("看到这里\n");
+	printf("六级过了吗？(1/0)>: ");
+	scanf("%d", &input);
+	if (input == 1)
+		printf("必须滴\n");
+	else
+		printf("下次一定\n");
+	return 0;
+}
+循环语句用：
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int line = 0;
+	while (line < 2000)
+	{
+		printf("接着复习，不要放弃\n");
+		line++;
+	}
+	printf("小木加油，下次一定能过");
+	return 0;
+}
+自定义函数求和
+int Add(int x, int y)
+{
+	int z = x + y;
+	return z;
+}
+int main()
+{
+	int num1 = 10;
+	int num2 = 20;
+	int sum = 0;
+	sum = Add(num1, num2);
+	printf("sum = %d\n", sum);
+	return 0;
+}
+输出数组
+int main()
+{
+	int arr[10] = {11,2,3,4,5,6,7,8,9,10 };
+	int i = 0; 
+	while (i < 10)
+	{
+		printf("%d", arr[i]);
+		i++;
+	}
+	return 0;
+简单的选择语句
+int main()
+{
+	int age = 20;
+	if (age < 18)
+	printf("未成年\n");
+	else if (age>=18 && age<=30)
+		printf("青年\n");
+	else if (age >30 && age <= 50)
+		printf("壮年\n");
+	else if (age >50 && age <= 70)
+		printf("中老年\n");
+	else if (age >100)
+		printf("暮年\n");
+	return 0;
+}
+}
+比较数值大小：方法一
+int main()
+{
+	int num1 = 10;
+	int num2 = 20;
+	if (num1 > num2)
+		printf("较大值是：%d\n,", num1);
+	else
+		printf("较大值是：%d\n,", num2);
+	return 0;
+}
+比较数值的大小：方法二
+int Max(int x,int y)
+{
+	if (x > y)
+		return x;
+	else
+		return y;
+}
+int main()
+{
+	int num1 = 10;
+	int num2 = 20;
+	int max = 0;
+	max = Max(num1, num2);
+	printf("max=%d\n", max);
+	return 0;
+}
+简单指针的应用
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+
+int main()
+{
+	int a = 10;
+	int* p = &a;
+	*p = 20;
+	printf("%p\n", p);
+	return 0;
+结构体创建
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+struct Book
+{
+	char name[20];
+	short price;
+};
+int main()
+{
+	struct Book b1 = { "云边有个小卖部", 30};
+	printf("书名:%s\n", b1.name);
+	printf("价格:%d元\n", b1.price);
+	b1.price = 15;
+	printf("修改后的价格:%d元\n", b1.price);
+	return 0;
+}
+结构体中指针的简单应用：
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+struct Book
+{
+	char name[20];
+	short price;
+};
+int main()
+{
+	struct Book b1 = { "云边有个小卖部", 30};
+	struct Book* pb = &b1;
+	printf("%s\n",pb->name);
+	printf("%d元\n", pb->price);
+	
+	return 0;
+}
+else输出错误的情况：
+int main()
+{
+	int a = 20;
+	int b = 30;
+	if (a == 10)
+	if (b == 30)
+		printf("hehe\n");
+	else
+		printf("haha\n");
+	
+	return 0;
+}
+循环之100以内的奇数：
+int main()
+{
+	int i = 1;
+	while (i < 100)
+	{
+		if (i % 2 == 1)
+			printf("%d\n", i);
+		i++;
+	}
+	
+	return 0;
+}
+多case的情况：
+int main()
+{
+	int day = 3;
+	int n = 1;
+	scanf("%d", &day);
+	switch (day)
+	{
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+	case 5:
+		printf("工作日\n");
+	case 6:
+	case 7:
+	printf("休息日\n");
+break;
+	case 8:
+		break;
+	}
+	
+	return 0;
+}
+while和continue的死循环：
+int main()
+{
+	int i = 1;
+	while (i <= 10)
+	{
+		if (i == 5)
+			continue;
+		printf("%d\n", i);
+		i++;
+	}
+	return 0;
+}
+getchar的简单应用(1)：
+int main()
+{
+	int ch = getchar();
+	putchar(ch);
+	printf("%c\n", ch);
+	return 0;
+}
+getchar的简单应用(2)：
+int main()
+{
+	int ch = 0;
+	while ((ch = getchar()) != EOF)
+	{
+		if (ch < '0' || ch>'9')
+			continue;
+		putchar(ch);
+	}
+	return 0;
+}
+for循环中break和continue的不同应用：
+int main()
+{
+	int i = 0;
+	for (i = 1; i <= 10;i++) 
+	{
+		if (i == 5)
+			break;/*continue;不打印5*/
+		printf("%d", i);
+	}
+	return 0;
+}
+for循环中的简单嵌套：
+int main()
+{
+	int i = 0;
+	int j = 0;
+	for (i = 0; i <= 4;i++) 
+		for (j = 0; j <= 3; j++)
+		{
+		printf("简单的嵌套\n");
+	}
+	return 0;
+}
+计算N的阶层（scanf函数的应用决定n的取值）
+int main()
+{
+	int i = 0;
+	int n = 0;
+	int m = 1;
+	scanf("%d", &n);
+	for (i = 1; i <= n;i++) 
+		{
+		m = m * i;
+		continue;
+	/*	break;*/
+	}
+	printf("m = %d\n",m);
+	return 0;
+}
+
+前N项阶层之和（n为具体数）：
+int i = 0;
+int n = 0;
+int m = 1;
+int sum = 0;
+int main()
+{
+	for (n = 1; n <= 3; n++)
+	{
+		m = m * n;
+		sum = sum + m;
+	}
+	printf("sum = %d\n", sum);
+	return 0;
+}
+前N项阶层之和）（n可自行输入）：
+int main()
+{
+	int i = 0;
+	int n = 0;
+	int m = 1;
+	int sum = 0;
+	scanf("%d", &n);
+	for (i = 1; i <= n;i++) 
+		{
+		m = m * i;
+		sum = sum + m;
+	}
+	printf("sum = %d\n",sum);
+	return 0;
+}
+
+前N项阶层之和（双循环，麻烦）：
+int main()
+{
+	int i = 0;
+	int n = 0;
+	int m = 1;
+	int sum = 0;
+	for (n = 1; n <= 3; n++)
+	
+	{
+		for (i = 1, m = 1; i <= n; i++)\\注意n要从1开始
+		{
+			m = m * i;
+		}
+		sum = sum + m;
+	}
+	printf("sum = %d\n", sum);
+	return 0;
+}
+找数组中的具体数值：
+int main()
+{
+	int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	int k = 7;
+	int i = 0;
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	for (i = 0; i <= sz; i++)
+	{
+		if (k == arr[i])
+		{
+			printf("找到了，下标是；%d\n", i);
+			break;
+		}
+	}
+	if (i == sz)
+		printf("找不到\n");
+	return 0;
+}
+找数组中的具体数值（二分法）：
+int main()
+{
+	int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	int left = 0;
+	int right = sizeof(arr) / sizeof(arr[0]);
+	int k = 7;
+	int mid = 0;
+	while (left <= right)
+	{
+		mid = (left + right) / 2;
+		if (arr[mid] > k)
+		{
+			right = mid - 1;
+		}
+		if (arr[mid] < k)
+		{
+			left = mid - 1;
+		}
+		else
+			break;
+
+	}
+	if (left<=right)
+		printf("找到了，下标是；%d\n", mid);
+	else 
+		printf("找不到%d\n", mid);
+	return 0;
+}
+数字居中
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<string.h>
+#include<windows.h>
+#include<stdlib.h>
+int main()
+{
+	char arr1[] = "世界美好与你环环相扣";
+	char arr2[] = "####################";
+	int left = 0;
+	/*int right = sizeof(arr1) / sizeof(arr1[0]) - 2;*/
+	int right = strlen(arr1) - 1;
+	while (left <= right)
+	{
+		arr2[left] = arr1[left];
+		arr2[right] = arr1[right];
+		printf("%s\n", arr2);
+		Sleep(1000);
+		system("cls");
+			left++;
+		right--;		
+	}
+	printf("%s\n", arr2);
+	return 0;
+}
+最大公约数的求法（辗转相除法）：
+int main()
+{
+	int m = 24;
+	int n = 18;
+	int r = 0;
+	while (m%n)
+	{
+		r = m%n;
+		m = n;
+		n = r;
+	}
+	printf("%d\n", n);
+	return 0;
+}
+求闰年：
+int main()
+{
+	int year = 0;
+	int count = 0;
+	for (year = 1000; year <= 2000; year++)
+	{
+	if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
+	{printf("%d", year);
+	count++;
+	}
+		printf("\ncount = %d\n", count);
+	}
+	return 0;
+}
+猜数字游戏：
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+void menu()
+{
+	printf("***************************\n");
+	printf("********  1.paly  *********\n");
+	printf("********  0.exit  *********\n");
+	printf("***************************\n");
+}
+void game()
+{
+	int random_num = rand() % 100 + 1;
+	int input = 0;
+	while (1)
+	{
+		printf("请输入猜的数字>:");
+		scanf("%d", &input);
+		if (input > random_num)
+		{
+			printf("猜大了\n");
+		}
+		else if (input < random_num)
+		{
+			printf("猜小了\n");
+		}
+		else
+		{
+			printf("恭喜你，猜对了\n");
+			break;
+		}
+	}
+}
+	int main()
+	{
+		int input = 0;
+		srand((unsigned)time(NULL));
+		do
+		{
+			menu();
+			printf("请选择>:");
+			scanf("%d", &input);
+			switch (input)
+			{
+			case 1:
+				game();
+				break;
+			case 2:
+				game();
+				break;
+			default:
+				printf("选择错误，请重新输入！\n");
+				break;
+			}
+		} while (input);
+		return 0;
+	}
+三次密码输入错误：
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int i = 0;
+	char password[6] = { 0 };
+	for (i = 0; i < 3; i++)
+	{
+		printf("请输入密码:>");
+		scanf("%s\n", password);
+		if (strcmp(password, "123456") == 0)
+		{
+			printf("登陆成功\n");
+			break;
+		}
+		else
+		{
+			printf("密码错误\n");
+		}
+	}
+	if (i == 3)
+		printf("三次密码均错误，退出程序\n");
+	return 0;
+}
+求字符串的长度：
+int my_strlen(char* str)
+{
+	if (*str != '\0')
+		return 1 + my_strlen(str + 1);
+	else
+		return 0;
+}
+
+int main()
+{
+	char arr[] = "hello world";
+	int len = my_strlen(arr);
+	printf("len=%d\n", len);
+	return 0;
+}
+求n的阶层（递归的方式）：
+int my( int n)
+{
+	if (n<= 1)
+		return 1 ;
+	else
+		return n*my(n-1);
+}
+
+int main()
+{
+	int n = 0;
+	int ret = 0;
+	scanf("%d", &n); 
+	ret = my(n);
+	printf("%d\n", ret);
+	return 0;
+}
+#include<stdio.h>
+#define _CRT_SECURE_NO_WARNINGS 1
+int main(void)
+{
+int i,n,number,sum;
+printf("请输入整数的个数:\n");
+scanf_s("%d", &n);
+sum = 0;
+printf("请输入%d个整数:\n", n);
+for(i = 1; i <= n; i++);
+	{
+		scanf_s("%d", &number);
+		sum += number;
+}
+printf("%d\n", sum);
+return 0;
+}
